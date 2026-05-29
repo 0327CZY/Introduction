@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>陈梓扬-中文简历</title>
+  <style>
+    :root {
+      --paper-width: 210mm;
+      --paper-min-height: 297mm;
+      --ink: #18222f;
+      --muted: #5f6b7a;
+      --line: #d8dee6;
+      --accent: #17324d;
+      --accent-soft: #eef3f8;
+      --tag-bg: #f5f7fa;
+      --page-bg: #edf2f7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(23, 50, 77, 0.08), transparent 28%),
+        linear-gradient(180deg, #f7fafc 0%, var(--page-bg) 100%);
+      font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.52;
+    }
+
+    .page {
+      width: min(100%, var(--paper-width));
+      min-height: var(--paper-min-height);
+      margin: 0 auto;
+      padding: 18mm 16mm 18mm;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 18px 48px rgba(27, 43, 62, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 6mm;
+      background: linear-gradient(90deg, #17324d 0%, #315d86 52%, #d5e1ec 100%);
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1fr 96px;
+      gap: 22px;
+      align-items: start;
+      padding-top: 8px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .name {
+      margin: 0 0 8px;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #102336;
+    }
+
+    .headline {
+      margin: 0 0 10px;
+      font-size: 15px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 13.8px;
+    }
+
+    .contact li strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .photo {
+      width: 96px;
+      height: 124px;
+      border: 1.5px solid #b8c4d2;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7b8794;
+      font-size: 14px;
+      background:
+        linear-gradient(180deg, rgba(245, 247, 250, 0.9), rgba(238, 243, 248, 0.85));
+      position: relative;
+    }
+
+    .photo::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px dashed #cbd5df;
+      border-radius: 8px;
+    }
+
+    .section {
+      margin-top: 15px;
+    }
+
+    .student-section {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .skills-section {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 12px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #17324d, #3d6b95);
+      flex: 0 0 auto;
+    }
+
+    .entry {
+      margin-bottom: 12px;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .entry-title {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      color: #13283f;
+    }
+
+    .entry-date {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 13.2px;
+      white-space: nowrap;
+    }
+
+    .entry-subtitle {
+      margin: 0 0 5px;
+      font-size: 13.4px;
+      color: var(--muted);
+    }
+
+    .bullets {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .bullets li {
+      margin: 4px 0;
+      font-size: 13.6px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 18px;
+      align-items: stretch;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .skill-item {
+      font-size: 13.6px;
+      line-height: 1.55;
+      padding: 10px 12px;
+      background: var(--tag-bg);
+      border: 1px solid #e4e9ef;
+      border-radius: 10px;
+      min-height: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .skill-item strong {
+      color: var(--accent);
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        padding: 0;
+        background: #fff;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .student-section {
+        margin-top: 10mm;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .skills-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .skills {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .skill-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <div>
+        <h1 class="name">陈梓扬</h1>
+        <p class="headline">清华大学计算机系｜本科｜AI Agent相关 / 通用软件开发</p>
+        <ul class="contact">
+          <li><strong>电话</strong> 15905915910</li>
+          <li><strong>邮箱</strong> chenziya24@mails.tsinghua.edu.cn</li>
+          <li><strong>意向城市</strong> 杭州 / 上海 / 深圳</li>
+        </ul>
+      </div>
+      <div class="photo">照片</div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">教育背景</h2>
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">清华大学｜计算机科学与技术（计算机系计43班）</h3>
+          <div class="entry-date">2024.09 - 2028.07</div>
+        </div>
+        <ul class="bullets">
+          <li>GPA：<strong>3.87/4.0</strong>；专业排名：<strong>36/200左右</strong>；2024-2025学年获<strong>清华大学学业单项奖学金（校级）</strong></li>
+          <li>核心课程：程序设计基础、数据结构、形式语言与自动机、软件工程、人工智能导论</li>
+          <li>围绕软件开发与智能系统方向持续积累课程训练，兼顾理论基础、工程实现与工具使用能力</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">科研经历</h2>
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">AI Agent 提示词注入攻防项目</h3>
+          <div class="entry-date">2025.10 - 至今</div>
+        </div>
+        <p class="entry-subtitle">清华大学相关实验室｜导师：李琦；方向导师：肖悦</p>
+        <ul class="bullets">
+          <li>参与 AI Agent 提示词注入攻防方向研究，围绕安全评测场景承担攻击结果复现、baseline 测试与实验流程整理工作</li>
+          <li>完成攻击复现报告并搭建 baseline 代码框架，为后续实验扩展、方法对比和结果分析提供基础支撑</li>
+          <li>将实验流程从单次复现整理为可重复执行的代码与记录结构，提升后续方案对比、过程追踪与结果复核效率</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">项目经历</h2>
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">即时通讯系统</h3>
+          <div class="entry-date">2026.03 - 至今</div>
+        </div>
+        <p class="entry-subtitle">软件工程课程大作业｜Vite + React / Django / MySQL</p>
+        <ul class="bullets">
+          <li>面向即时通讯场景参与系统全栈开发，完成登录注册、会话页面等核心功能的实现与联调</li>
+          <li>独立推进音视频通话、LLM 接入、定位功能、邮箱接入等模块开发，扩展产品交互场景与功能边界</li>
+          <li>围绕课程项目完成从页面交互、接口设计到数据存储的端到端实现，形成较完整的系统闭环</li>
+          <li>在多模块并行开发过程中持续处理前后端接口衔接、异常排查与功能整合，提升系统可用性与功能完整度</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">安卓新闻 APP</h3>
+          <div class="entry-date">2025.07</div>
+        </div>
+        <p class="entry-subtitle">Java 课程大作业｜Java + Android SDK</p>
+        <ul class="bullets">
+          <li>单人完成安卓客户端、后端与本地存储方案开发，独立串联数据获取、接口处理与移动端展示流程</li>
+          <li>实现新闻抓取、分类展示、搜索、收藏、视频播放与离线缓存等功能，构建较完整的移动端信息获取体验</li>
+          <li>在单人开发过程中兼顾功能设计、界面交互与数据流转逻辑，完成从需求到实现的闭环落地</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">论文数据计算流程 Python 封装</h3>
+          <div class="entry-date">项目实践</div>
+        </div>
+        <p class="entry-subtitle">协助教师论文数据处理｜Excel 公式迁移 / Python 工具化</p>
+        <ul class="bullets">
+          <li>协助教师处理论文数据，将原始 Excel 表格中的复杂公式与多步计算流程梳理并迁移为可复用的 Python 代码包</li>
+          <li>对计算过程进行模块化封装，减少人工表格操作带来的重复劳动与公式维护成本，提升逻辑可读性与流程可复现性</li>
+          <li>将分散的表格逻辑转化为可参数化调用的计算流程，便于数据复核、结果复用与后续迭代维护</li>
+          <li>通过代码化重构降低对人工表格处理的依赖，使后续论文数据更新和计算验证更高效、更稳定</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section student-section">
+      <h2 class="section-title">学生工作</h2>
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">班长</h3>
+          <div class="entry-date">2025.09 - 至今</div>
+        </div>
+        <p class="entry-subtitle">清华大学计算机系计43班</p>
+        <ul class="bullets">
+          <li>统筹班级日常事务与活动组织，策划男生节、女生节等班级活动，协调同学分工与活动推进</li>
+          <li>负责主题团日与甲团评比推送文案撰写，参与班级对外展示与集体材料整理工作</li>
+          <li>参与班级凝聚力建设与支部事务协同，所在班级获系级“体育事业最佳支部”</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">生活委员 / 实践支队财务</h3>
+          <div class="entry-date">2024.09 - 2025.07</div>
+        </div>
+        <p class="entry-subtitle">清华大学计算机系计43班；2025暑期“计绘数泓”计43赴宿迁实践支队</p>
+        <ul class="bullets">
+          <li>负责生日推送、班级财务与班费管理，参与班级基础行政支持与日常事务协调</li>
+          <li>担任暑期实践支队财务，处理经费记录、支出整理与流程对接，保障实践活动顺利推进</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section skills-section">
+      <h2 class="section-title">技能与其他</h2>
+      <div class="skills">
+        <div class="skill-item"><strong>编程语言：</strong>C++、C、Python、TypeScript</div>
+        <div class="skill-item"><strong>工具与平台：</strong>Git、Linux、MySQL、VS Code、Cursor</div>
+        <div class="skill-item"><strong>框架与相关能力：</strong>Vite + React、PyTorch、AgentDojo</div>
+        <div class="skill-item"><strong>AI 工具：</strong>具备 Codex、Claude Code 等 Agent 工具的初步使用经验</div>
+        <div class="skill-item"><strong>英语：</strong>CET-4 605；CET-6 484</div>
+        <div class="skill-item"><strong>其他：</strong>维护个人课程代码仓库，系统整理清华大学计算机系课程作业实现；gitlink 链接占位：&lt;在此替换为真实链接&gt;</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
